@@ -6,12 +6,20 @@
 #ifndef BASE64_H_C0CE2A47_D10E_42C9_A27C_C883944E704A
 #define BASE64_H_C0CE2A47_D10E_42C9_A27C_C883944E704A
 
+#include "lib_platform/Globals.h"
+
 #include <string>
 
-std::string base64_encode(unsigned char const* bytes_to_encode, size_t in_len);
-std::string base64_encode(const std::string& s);
+#if defined(LIB_BASE64_LIBRARY)
+#  define LIB_BASE64_SHARED_EXPORT TP_EXPORT
+#else
+#  define LIB_BASE64_SHARED_EXPORT TP_IMPORT
+#endif
 
-std::string base64_decode(std::string const& s);
+std::string LIB_BASE64_SHARED_EXPORT base64_encode(unsigned char const* bytes_to_encode, size_t in_len);
+std::string LIB_BASE64_SHARED_EXPORT base64_encode(const std::string& s);
+
+std::string LIB_BASE64_SHARED_EXPORT base64_decode(std::string const& s);
 
 
 
