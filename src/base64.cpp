@@ -57,7 +57,7 @@ std::string base64_encode(unsigned char const* bytes_to_encode, size_t in_len) {
     while (in_len--) {
         char_array_3[i++] = *(bytes_to_encode++);
         if (i == 3) {
-            char_array_4[0] = (char_array_3[0] & 0xfc) >> 2;
+            char_array_4[0] = uint8_t((char_array_3[0] & 0xfc) >> 2);
             char_array_4[1] = uint8_t(((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4));
             char_array_4[2] = uint8_t(((char_array_3[1] & 0x0f) << 2) + ((char_array_3[2] & 0xc0) >> 6));
             char_array_4[3] = char_array_3[2] & 0x3f;
@@ -73,7 +73,7 @@ std::string base64_encode(unsigned char const* bytes_to_encode, size_t in_len) {
         for(j = i; j < 3; j++)
             char_array_3[j] = '\0';
 
-        char_array_4[0] = ( char_array_3[0] & 0xfc) >> 2;
+        char_array_4[0] = uint8_t(( char_array_3[0] & 0xfc) >> 2);
         char_array_4[1] = uint8_t(((char_array_3[0] & 0x03) << 4) + ((char_array_3[1] & 0xf0) >> 4));
         char_array_4[2] = uint8_t(((char_array_3[1] & 0x0f) << 2) + ((char_array_3[2] & 0xc0) >> 6));
 
