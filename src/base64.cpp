@@ -31,6 +31,7 @@
 
 #include "base64.h"
 #include <iostream>
+#include <cstdint>
 
 namespace
 {
