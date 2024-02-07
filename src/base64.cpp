@@ -103,7 +103,7 @@ std::string base64_encode(const std::string& s)
 }
 
 //##################################################################################################
-std::string base64_decode(std::string const& encoded_string)
+std::string base64_decode(const std::string& encoded_string)
 {
   const auto& base64_chars = chars();
 
